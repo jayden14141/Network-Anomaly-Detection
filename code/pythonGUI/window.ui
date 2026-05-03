@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1920</width>
+    <height>1080</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Network Traffic Analysis</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QSplitter" name="splitter_3">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <widget class="QLabel" name="label">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string> Display Filter: </string>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="margin">
+        <number>0</number>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="filterBox">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+         <horstretch>7</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="filterBot">
+       <property name="text">
+        <string>Filter</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="amount">
+       <property name="text">
+        <string>Amount</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit"/>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QSplitter" name="splitter_2">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <widget class="QTableWidget" name="captureList">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>10</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QAbstractScrollArea::AdjustIgnored</enum>
+       </property>
+       <property name="showGrid">
+        <bool>false</bool>
+       </property>
+       <property name="gridStyle">
+        <enum>Qt::DashDotLine</enum>
+       </property>
+       <property name="sortingEnabled">
+        <bool>true</bool>
+       </property>
+       <property name="rowCount">
+        <number>0</number>
+       </property>
+       <property name="columnCount">
+        <number>6</number>
+       </property>
+       <attribute name="horizontalHeaderDefaultSectionSize">
+        <number>200</number>
+       </attribute>
+       <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+        <bool>true</bool>
+       </attribute>
+       <attribute name="verticalHeaderDefaultSectionSize">
+        <number>30</number>
+       </attribute>
+       <column>
+        <property name="text">
+         <string extracomment="Number">No.</string>
+        </property>
+        <property name="toolTip">
+         <string extracomment="Number">Number</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string extracomment="Time">Time</string>
+        </property>
+        <property name="toolTip">
+         <string extracomment="Time">Time</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string extracomment="Source address">Source</string>
+        </property>
+        <property name="toolTip">
+         <string extracomment="Source address">Source address</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string extracomment="Destination address">Destination</string>
+        </property>
+        <property name="toolTip">
+         <string extracomment="Destination address">Destination address</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string extracomment="Protocol">Protocol</string>
+        </property>
+        <property name="toolTip">
+         <string>Protocol</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string extracomment="Packet lenth (byte)">Length</string>
+        </property>
+        <property name="toolTip">
+         <string extracomment="Packet lenth (byte)">Packet lenth (byte)</string>
+        </property>
+       </column>
+      </widget>
+      <widget class="QSplitter" name="splitter">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>10</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="handleWidth">
+        <number>0</number>
+       </property>
+       <widget class="QTreeWidget" name="detail">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>2</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="columnCount">
+         <number>1</number>
+        </property>
+        <attribute name="headerVisible">
+         <bool>false</bool>
+        </attribute>
+        <column>
+         <property name="text">
+          <string notr="true">1</string>
+         </property>
+        </column>
+       </widget>
+       <widget class="QTableWidget" name="data">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>1</horstretch>
+          <verstretch>1</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="sizeAdjustPolicy">
+         <enum>QAbstractScrollArea::AdjustIgnored</enum>
+        </property>
+        <property name="showGrid">
+         <bool>false</bool>
+        </property>
+        <property name="rowCount">
+         <number>0</number>
+        </property>
+        <property name="columnCount">
+         <number>16</number>
+        </property>
+        <column/>
+        <column/>
+        <column/>
+        <column/>
+        <column/>
+        <column/>
+        <column/>
+        <column/>
+        <column/>
+        <column/>
+        <column/>
+        <column/>
+        <column/>
+        <column/>
+        <column/>
+        <column/>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1920</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <property name="separatorsCollapsible">
+     <bool>false</bool>
+    </property>
+    <property name="toolTipsVisible">
+     <bool>false</bool>
+    </property>
+    <addaction name="actionOpen"/>
+    <addaction name="actionOpen_Multi_Files"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSave_As_2"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuCapture">
+    <property name="title">
+     <string>&amp;Capture</string>
+    </property>
+    <addaction name="actionStart"/>
+    <addaction name="actionPause"/>
+    <addaction name="actionStop"/>
+   </widget>
+   <widget class="QMenu" name="menuAnalysis">
+    <property name="title">
+     <string>&amp;Analysis</string>
+    </property>
+    <addaction name="actionGraph"/>
+    <addaction name="actionAttack_Analysis"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>&amp;Edit</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="actionUse_Guide"/>
+   </widget>
+   <widget class="QMenu" name="menuTest">
+    <property name="title">
+     <string>&amp;Test</string>
+    </property>
+    <addaction name="actionpcap_Test"/>
+    <addaction name="actionPacket_Capture_Test"/>
+    <addaction name="actionAttack_Analysis_Test"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuCapture"/>
+   <addaction name="menuAnalysis"/>
+   <addaction name="menuHelp"/>
+   <addaction name="menuTest"/>
+  </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>18</width>
+     <height>18</height>
+    </size>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionStartCapture"/>
+   <addaction name="actionPauseCapture"/>
+   <addaction name="actionStopCaputure"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar">
+   <property name="sizeGripEnabled">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionSave_As">
+   <property name="text">
+    <string>Save As</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+   <property name="toolTip">
+    <string>Quit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionStart">
+   <property name="text">
+    <string>Start</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+B</string>
+   </property>
+  </action>
+  <action name="actionPause">
+   <property name="text">
+    <string>Pause</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
+   </property>
+  </action>
+  <action name="actionStop">
+   <property name="text">
+    <string>Stop</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+E</string>
+   </property>
+  </action>
+  <action name="actionStartCapture">
+   <property name="icon">
+    <iconset>
+     <normaloff>pic/play.png</normaloff>pic/play.png</iconset>
+   </property>
+   <property name="text">
+    <string>StartCapture</string>
+   </property>
+   <property name="toolTip">
+    <string>Start Capturing</string>
+   </property>
+  </action>
+  <action name="actionPauseCapture">
+   <property name="icon">
+    <iconset>
+     <normaloff>pic/pause.png</normaloff>pic/pause.png</iconset>
+   </property>
+   <property name="text">
+    <string>PauseCapture</string>
+   </property>
+   <property name="toolTip">
+    <string>Pause capturing</string>
+   </property>
+  </action>
+  <action name="actionStopCaputure">
+   <property name="icon">
+    <iconset>
+     <normaloff>pic/stop.png</normaloff>pic/stop.png</iconset>
+   </property>
+   <property name="text">
+    <string>StopCaputure</string>
+   </property>
+  </action>
+  <action name="actionGraph">
+   <property name="text">
+    <string>Analysis Graphs</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+G</string>
+   </property>
+  </action>
+  <action name="actionSave_As_2">
+   <property name="text">
+    <string>Save As</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+  <action name="actionAttack_Analysis">
+   <property name="text">
+    <string>Attack Analysis</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
+  </action>
+  <action name="actionOpen_Multi_Files">
+   <property name="text">
+    <string>Open Multi-Files</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+O</string>
+   </property>
+  </action>
+  <action name="actionpcap_Test">
+   <property name="text">
+    <string>pcap Test</string>
+   </property>
+  </action>
+  <action name="actionPacket_Capture_Test">
+   <property name="text">
+    <string>Packet Capture Test</string>
+   </property>
+  </action>
+  <action name="actionAttack_Analysis_Test">
+   <property name="text">
+    <string>Attack Analysis Test</string>
+   </property>
+  </action>
+  <action name="actionUse_Guide">
+   <property name="text">
+    <string>Use Guide</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+H</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

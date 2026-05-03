@@ -1,25 +1,4 @@
-# 2022-NetworkTrafficAnalysis
-
-[![Push test](https://github.com/spe-uob/2022-NetworkTrafficAnalysis/actions/workflows/main.yml/badge.svg)](https://github.com/spe-uob/2022-NetworkTrafficAnalysis/actions/workflows/main.yml)
-[![webpage_test](https://github.com/spe-uob/2022-NetworkTrafficAnalysis/actions/workflows/help_webpage_check.yml/badge.svg)](https://github.com/spe-uob/2022-NetworkTrafficAnalysis/actions/workflows/help_webpage_check.yml)
-
-## List of Content
-  - [Project Description](#project-description)
-  - [Requirements](#requirements)
-    - [Packet Capture Specification](#packet-capture-specification)
-  - [Stakeholders](#stakeholders)
-  - [Group Members](#group-members)
-  - [Supporting Mentor](#supporting-mentor)
-  - [User Stories](#user-stories)
-  - [MVP Information](#mvp-information)
-  - [Beta Information](#beta-information)
-  - [Setup instruction for development](#setup-instruction-for-development)
-  - [Deployment Instructions](#deployment-instructions)
-  - [Ethics](#ethics)
-  - [License](#license)
-  - [Gantt Chart](#gantt-chart)
-  - [Help Webpage](https://ubiquitous-sniffle-y217w7w.pages.github.io/#/)
-  - [Quick Links](#quick-links)
+# Network-Anomaly-Detection
 
 ## Project Description
  

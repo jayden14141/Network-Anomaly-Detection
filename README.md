@@ -1,6 +1,6 @@
 # Network Anomaly Detection: From Rule-Based algorithm to ML
 
-A network traffic analysis and intrusion detection tool, extended with a machine-learning detection pipeline.
+A network traffic analysis and intrusion detection tool, paired with an ML study on the same problem.
 
 > Originally developed as a team project in university.
 
@@ -21,29 +21,28 @@ A live packet capture and analysis tool built on Scapy + PyQt5.
 
 Each detector triggers when a hand-tuned threshold (packets/sec, connection count, etc.) is crossed.
 
-## Planned ML Approach (`ml/`)
+## ML Study (`ml/`)
 
-A phased pipeline, simple to complex:
+A One-vs-Rest study on CIC-IDS2017: rather than one global attack/benign classifier, train a dedicated binary classifier per attack type (14 total) and compare four model families across them.
 
-1. **Tabular anomaly detection** — EWMA baseline, Isolation Forest, XGBoost (supervised upper bound).
-2. **Sequential / probabilistic models** — Markov chains over traffic-state transitions, to catch temporal patterns the tabular models miss.
-3. **Deep learning (future)** — LSTM / temporal-conv autoencoders, GNN over host-host graphs.
+- **Models compared:** Random Forest, XGBoost, LightGBM, Autoencoder (reconstruction-error anomaly detector).
+- **Attack grouping by sample size:** Large (≥10k), Medium (1k–10k), Small (<1k) — handled in separate notebooks so small-class caveats stay isolated.
+- **Per-attack feature selection** via Random Forest importance (top-10 features per attack).
+- **Evaluation:** 3-fold stratified CV + 80/20 holdout, reporting precision/recall/F1 and training time, aggregated into per-attack heatmaps and recall-vs-sample-size / speed-vs-recall plots.
 
-Trained and evaluated on **CIC-IDS2017**. Each model is benchmarked against the seven rule-based detectors on precision, recall, F1, false-positive rate, and detection latency.
-
-See [`ml/README.md`](ml/README.md) for the full plan.
+See [`ml/README.md`](ml/README.md) for the full write-up.
 
 ## Repo Structure
 
 ```
 code/      Rule-based detector + GUI (capstone deliverable, frozen)
-ml/        ML detection pipeline (notebooks, src, models, results)
+ml/        ML study (notebooks + write-up)
 data/      Datasets (gitignored)
 docs/      User guide for the GUI
 Research/  Background research from the capstone
 ```
 
-`code/` and `ml/` are independent modules — `code/` runs standalone as the original tool, `ml/` runs standalone for training and evaluation. They are designed to connect later: trained models in `ml/models/` can score flows extracted by `code/`'s capture pipeline, replacing or augmenting the threshold-based detectors.
+`code/` and `ml/` are independent — `code/` runs standalone as the original tool; `ml/` is a self-contained Colab-based study.
 
 ## Setup (existing system)
 
